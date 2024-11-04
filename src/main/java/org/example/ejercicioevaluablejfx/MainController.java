@@ -43,8 +43,8 @@ public class MainController implements Initializable {
 
     @FXML
     public void addUser(ActionEvent actionEvent) {
-        if (txtCorreo.getText() == null || txtCorreo.getText().isEmpty() && choiceBoxPlatform.getValue() == null || txtCorreo.getText().isEmpty()
-                && txtVersionSoftware.getValue() == null && txtVersionSoftware.getValue() == null) {
+        if (txtCorreo.getText() == null || txtCorreo.getText().isEmpty() || choiceBoxPlatform.getValue() == null || txtCorreo.getText().isEmpty()
+                && txtVersionSoftware.getValue() == null || txtVersionSoftware.getValue() == null) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error");
 
@@ -81,12 +81,6 @@ public class MainController implements Initializable {
         columnAdmin.setCellValueFactory((fila)->{
          return new SimpleStringProperty(fila.getValue().toString());
         });
-
-
-
-
-
-
 
 
     }
