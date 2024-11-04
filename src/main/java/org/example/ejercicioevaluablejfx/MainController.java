@@ -70,16 +70,16 @@ public class MainController implements Initializable {
         choiceBoxPlatform.getItems().addAll("Windows","Linux","MacOs");
 
         columnCorreo.setCellValueFactory((fila)-> {
-            return new SimpleStringProperty(fila.getValue().toString());
+            return new SimpleStringProperty(fila.getValue().getCorreo());
         });
         columnPLataforma.setCellValueFactory((fila)->{
-          return new SimpleStringProperty(fila.getValue().toString()+" "+txtVersionSoftware.getValue());
+          return new SimpleStringProperty(fila.getValue().getPlataforma()+" "+fila.getValue().getVersionSoftware());
         });
         columnFecha.setCellValueFactory((fila)->{
-            return new SimpleStringProperty(fila.getValue().toString());
+            return new SimpleStringProperty(fila.getValue().getFechaRegistro().toString() );
         });
         columnAdmin.setCellValueFactory((fila)->{
-         return new SimpleStringProperty(fila.getValue().toString());
+         return new SimpleStringProperty(fila.getValue().getAdministrador());
         });
 
 
