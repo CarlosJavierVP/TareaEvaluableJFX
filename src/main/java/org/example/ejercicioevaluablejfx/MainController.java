@@ -43,10 +43,12 @@ public class MainController implements Initializable {
 
     @FXML
     public void addUser(ActionEvent actionEvent) {
-        if (txtCorreo.getText() == null || txtCorreo.getText().isEmpty() || choiceBoxPlatform.getValue() == null
-                || txtVersionSoftware.getValue() == null ) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        if (txtCorreo.getText() == null || txtCorreo.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Debe ingresar el correo");
+            alert.showAndWait();
 
         }else{
             User newUser = new User();
@@ -56,8 +58,6 @@ public class MainController implements Initializable {
             newUser.setVersionSoftware(txtVersionSoftware.getValueFactory().getValue());
             newUser.setAdministrador(checkBoxAdmin.getText());
             newUser.setFechaRegistro(LocalDate.parse(LocalDate.now().toString()));
-
-            tablaUsuarios.getItems().clear();
 
             tablaUsuarios.getItems().add(newUser);
         }
@@ -85,8 +85,4 @@ public class MainController implements Initializable {
 
     }
 
-    @FXML
-    public void borrar(ActionEvent actionEvent) {
-
-    }
 }
